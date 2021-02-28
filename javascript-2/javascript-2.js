@@ -35,12 +35,12 @@ let foods = [
   and then adding the results together. 
 */
 
-// foods.forEach(
-//   (element, index, array) => {
-//   let calories = ((this.carbs*4) + (this.protien*4) + (this.fat*9));
+foods.forEach(
+  (element, index, array) => {
+  element.calories = ((this.carbs*4) + (this.protien*4) + (this.fat*9));
 
-// }
-// );
+}
+);
 
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
@@ -85,10 +85,12 @@ const products = [
   Save the copy to a new variable called 'saleProducts'.
 */
 
-let saleProducts = products.map(elem => {
-  return elem.price*.75
+let saleProducts = products.map(elem => ({
+  name: elem.name,
+  color: elem.color,
+  price: elem.price*.75
 
-});
+}));
 
 ////////////////////PROBLEM 3////////////////////
 /*
@@ -98,10 +100,11 @@ let saleProducts = products.map(elem => {
   (Hint: look up the array method 'includes' on MDN)
 */
 
-let blueProducts = products.filter(function(elem){
-  if(elem.color.includes('blue')){
-    return elem
-  }
+let blueProducts = saleProducts.filter(function(elem){
+  // if(elem.color.includes('blue')){
+  //   return elem
+  // }
+  return elem.color.includes('blue')
 });
 
 ////////////////////PROBLEM 4////////////////////
@@ -111,7 +114,11 @@ let blueProducts = products.filter(function(elem){
   Save the result to a variable called orderTotal.
 */
 
-let orderTotal = blueProducts.reduce((acc, curr) => acc + curr)
+// let orderTotal = blueProducts.reduce((acc, curr) => acc + curr)
+
+let orderTotal = blueProducts.reduce(function(acc, curr){
+  return (acc, curr.price)
+})
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
@@ -168,7 +175,7 @@ const {email} = ellensInfo
   from shippingInfo to new variables using destructuring.
 */
 
-const {zipCode, state} = helensInfo
+const {zipCode, state} = shippingInfo
 
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
@@ -270,7 +277,7 @@ const person = {
   age: 2,
   jobs: ['', '', ''],
   birthday: function(){
-    return age++
+    return this.age++
   },
   favorites: {
   color: '',

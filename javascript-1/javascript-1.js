@@ -20,7 +20,7 @@ let myArr = [4, 'abc', ['cat', 'dog', 'bird'], 77]
 
 const nestedLetters = ['m', 'g', 'e', 'q', 'h', ['n', 'b', ['v', 'z', 'y', 'r']], 'a']
 
-let foundZ = nestedLetters
+let foundZ = nestedLetters[5][2][1]
 
 
 ////////////////////PROBLEM 3////////////////////
@@ -138,14 +138,15 @@ delete gameInfo.rating;
 
 function evensOnly(shapes){
     for(let key in shapes){
-        if(!shapes[key] % 2 === 0){
-            delete shapes[key]
+        if(shapes[key] % 2 === 0){
+            // delete shapes[key]
+        }else{
+          delete shapes[key]
         }
     }
     return shapes
 }
-  
-  
+  console.log(evensOnly(shapes))
 ////////////////////PROBLEM 9////////////////////
 
 //DO NOT EDIT CODE BELOW
@@ -185,16 +186,17 @@ const classes = [
     all online classes with no homework.
 */
 
-function noHomework(){
-    for(let i = 0; i < classes.length; i++){
+function noHomework(obj){
+    for(let i = 0; i < obj.length; i++){
         for(let key in obj){
-            if(obj[key] === homework){
+            if(obj[key[i]] === 'homework'){
                 homework = false
-            }else if (obj[key] === inPerson){
+            }else if (obj[key[i]] === 'inPerson'){
                 inPerson = false
             }
         }
     }
+    return classes
 }
 
   
@@ -211,7 +213,16 @@ const lettersToPair = ['e', 'k', 's', 'a', 'e', 's', 'a', 'n', 'k', 'n']
 let pairsArray = []
 //DO NOT EDIT CODE ABOVE
 
-//CODE HERE
+function pairs(arr){
+    for(let i = 0; i < arr.length; i++){
+        for(let j = arr.length-1; j > [i]; j--){
+            if(arr[i] == arr[j]){
+                pairsArray.push([i, j])
+            }
+        }
+    }
+    return pairsArray
+}
 
     
 
@@ -242,7 +253,7 @@ function Dog(name, age, breed, tricks){
     Store the result in a variable called 'fido'.
 */
 
-const fido = new Dog('Fido', 3, 'Jack Russle', ['sit', 'shake'])
+const fido = new Dog('Fido', 3, 'Jack Russell', ['sit', 'shake'])
   
 
 ////////////////////PROBLEM 12////////////////////
@@ -252,7 +263,7 @@ const fido = new Dog('Fido', 3, 'Jack Russle', ['sit', 'shake'])
     NAME will come from that context, so you should reference 'this.name' to get the correct name.
 */
 
-function bark(obj){
+function bark(){
     return `${this.name} says bark!`
 }
 
@@ -262,7 +273,7 @@ function bark(obj){
     and saving the result to a variable called fidoSpeak.
 */
 
-bark.call(fido);
+const fidoSpeak = bark.call(fido);
   
   
 ////////////////////PROBLEM 13////////////////////
@@ -274,7 +285,9 @@ bark.call(fido);
 */
 
 function teachTrick(trick){
-    return 
+    this.obj.bind(trick)
+    return obj
+    
 }
 
 
@@ -294,7 +307,10 @@ function teachTrick(trick){
     Remember to use the 'this' keyword to access values from the context that you will apply.
 */
 
-//CODE HERE
+function dogIntro(treat, toy){
+
+    return `${this.name} is a ${this.breed} that loves ${treat} and their ${toy}!`
+}
 
 
 /*
@@ -303,7 +319,7 @@ function teachTrick(trick){
     and save the result to a variable called fidoIntro.
 */
 
-//CODE HERE
+// let fidoIntro = dogIntro.apply(chicken, tennisball, [fido])
   
 
 ////////////////////PROBLEM 15////////////////////

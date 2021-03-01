@@ -8,7 +8,7 @@
     Call the array 'myArr'.
 */
 
-let myArr = [4, 'abc', ['cat', 'dog', 'bird'], 77]
+let myArr = [4, 'abc', ['cat', 'dog', 'bird'], 77];
 
 
 ////////////////////PROBLEM 2////////////////////
@@ -20,7 +20,7 @@ let myArr = [4, 'abc', ['cat', 'dog', 'bird'], 77]
 
 const nestedLetters = ['m', 'g', 'e', 'q', 'h', ['n', 'b', ['v', 'z', 'y', 'r']], 'a']
 
-let foundZ = nestedLetters[5][2][1]
+let foundZ = nestedLetters[5][2][1];
 
 
 ////////////////////PROBLEM 3////////////////////
@@ -36,7 +36,7 @@ const savannah = ['lion', 'zebra', 'lion', 'giraffe']
 const desert = ['rattlesnake', 'coyote']
 //DO NOT EDIT CODE ABOVE
 
-const animals = [...forest, ...ocean, ...savannah, ...desert]
+const animals = [...forest, ...ocean, ...savannah, ...desert];
 
 
 /*
@@ -44,7 +44,7 @@ const animals = [...forest, ...ocean, ...savannah, ...desert]
     Call the new array 'animalsCopy' and add 'elephant' onto the end of the array.
 */
 
-const animalsCopy = [...animals, 'elephant']
+const animalsCopy = [...animals, 'elephant'];
 
 
 ////////////////////PROBLEM 4////////////////////
@@ -61,7 +61,7 @@ let compareNums = (num1, num2) => {
     }else{
         return num2
     }
-}
+};
 
   
 ////////////////////PROBLEM 5////////////////////
@@ -73,7 +73,7 @@ let compareNums = (num1, num2) => {
     we would expect the function to return 'Sharknado is the best movie ever!'
 */
 
-let bestMovie = (movie) =>  `${movie} is the best movie ever!`
+let bestMovie = (movie) =>  `${movie} is the best movie ever!`;
 
   
   
@@ -82,7 +82,7 @@ let bestMovie = (movie) =>  `${movie} is the best movie ever!`
     Write an arrow function called 'jsNinja' that returns the string: 'I am a JavaScript ninja!'
 */
 
-let jsNinja = () => 'I am a JavaScript ninja!'
+let jsNinja = () => 'I am a JavaScript ninja!';
   
 
 ////////////////////PROBLEM 7////////////////////
@@ -95,7 +95,7 @@ let jsNinja = () => 'I am a JavaScript ninja!'
     playingTime: 30,
     minAge: 10,
     rating: 1
-  }
+  };
 //DO NOT EDIT CODE ABOVE
 
 /*
@@ -145,8 +145,8 @@ function evensOnly(shapes){
         }
     }
     return shapes
-}
-  console.log(evensOnly(shapes))
+};
+  console.log(evensOnly(shapes));
 ////////////////////PROBLEM 9////////////////////
 
 //DO NOT EDIT CODE BELOW
@@ -198,6 +198,7 @@ function noHomework(obj){
     }
     return classes
 }
+noHomework(classes);
 
   
 ////////////////////PROBLEM 10////////////////////
@@ -213,16 +214,17 @@ const lettersToPair = ['e', 'k', 's', 'a', 'e', 's', 'a', 'n', 'k', 'n']
 let pairsArray = []
 //DO NOT EDIT CODE ABOVE
 
-function pairs(arr){
-    for(let i = 0; i < arr.length; i++){
-        for(let j = arr.length-1; j > [i]; j--){
-            if(arr[i] == arr[j]){
+function pairs(lettersToPair){
+    for(let i = 0; i < lettersToPair.length; i++){
+        for(let j = lettersToPair.length-1; j > [i]; j--){
+            if(lettersToPair[i] == lettersToPair[j]){
                 pairsArray.push([i, j])
             }
         }
     }
     return pairsArray
 }
+pairs(lettersToPair);
 
     
 
@@ -285,8 +287,8 @@ const fidoSpeak = bark.call(fido);
 */
 
 function teachTrick(trick){
-    this.obj.bind(trick)
-    return obj
+    this.tricks.push(trick)
+    return this.tricks
     
 }
 
@@ -296,7 +298,7 @@ function teachTrick(trick){
     Save the result to a variable called 'teachStay'.
 */
 
-//CODE HERE
+const teachStay = teachTrick.bind(fido, 'stay')
   
   
 ////////////////////PROBLEM 14////////////////////
@@ -319,7 +321,7 @@ function dogIntro(treat, toy){
     and save the result to a variable called fidoIntro.
 */
 
-// let fidoIntro = dogIntro.apply(chicken, tennisball, [fido])
+let fidoIntro = dogIntro.apply(fido, ['chicken', 'tennis ball'])
   
 
 ////////////////////PROBLEM 15////////////////////
@@ -365,12 +367,8 @@ function Phone(brand, model, storage, color, sold){
 */
 
 Phone.prototype.sell = function(){
-    for(let i = 0; i < this.phone.length; i++){
-        if(this.phone[i].model === modelSold){
-            this.phone.sold = true
-        }
-    }
-    return `${brand} ${model} has been sold`
+    this.sold = true;
+    return `${this.brand} ${this.model} has been sold.`
 }
 
   

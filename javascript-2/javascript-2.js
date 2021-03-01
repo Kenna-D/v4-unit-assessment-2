@@ -35,12 +35,7 @@ let foods = [
   and then adding the results together. 
 */
 
-foods.forEach(
-  (element, index, array) => {
-  element.calories = ((this.carbs*4) + (this.protien*4) + (this.fat*9));
-
-}
-);
+foods.forEach(element => element.calories = (element.carbs + element.protein + element.fat));
 
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
